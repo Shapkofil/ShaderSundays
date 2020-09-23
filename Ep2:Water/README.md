@@ -1,9 +1,10 @@
-# Shader Sundays Ep 1: Fog and Mist
+# Shader Sundays Ep 2: WATER
 
-godot project featuring procedural mist and fog
+Ocean shader heavily inspired by Sebastian Lague.  
+The shader is build for godot, but in theory could be applied to any piece of software.
 
 ## Youtube video:  
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/_veqnRfYcp8/0.jpg)](https://www.youtube.com/watch?v=_veqnRfYcp8)
+[![Video](https://img.youtube.com/vi/_veqnRfYcp8/0.jpg)](https://www.youtube.com/watch?v=_veqnRfYcp8)
 
 ## useful resources:
 https://www.iquilezles.org/www/articles/intersectors/intersectors.htm  

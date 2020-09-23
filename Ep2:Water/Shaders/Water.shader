@@ -1,20 +1,39 @@
+/*
+Copyright © 2020 Shapkofil
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files 
+(the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished 
+to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 shader_type spatial;
 render_mode unshaded;
 
+const vec3 ocean_normal = vec3(0.0, 1.0, 0.0);
+
 uniform vec4 ocean_color: hint_color = vec4(1.0);
 uniform vec4 deep_ocean_color: hint_color = vec4(0.5);
-uniform vec4 specular_color: hint_color = vec4(0.5);
-uniform float ocean_depth = 100.0;
-uniform float sea_level = 1.0;
+uniform vec4 specular_color: hint_color = vec4(1.0);
+uniform float ocean_depth = 5.0;
+uniform float sea_level = 20.0;
 
-uniform float specular_power :hint_range(0.0,1.0) = 0.6;
+uniform float specular_smoothness :hint_range(0.0,1.0) = 0.9;
 uniform float specular_strenght = 0.2;
-uniform vec3 ocean_normal = vec3(0.0, 1.0, 0.0);
 uniform vec3 sun_pos = vec3(-20.0);
 
 uniform float wave_scale = 0.6;
 uniform float wave_speed = 0.7;
-uniform float wave_strength:hint_range(0,1) = 0.1;
+uniform float wave_strength:hint_range(0,1) = 0.5;
 
 // 	<www.shadertoy.com/view/XsX3zB>
 //	by Nikita Miropolskiy
@@ -117,11 +136,11 @@ void fragment()
     	wave_normal = mix(ocean_normal, wave_normal, wave_strength);
 		
 		float specular_angle = dot(normalize(sun_pos), reflect(ray_dir,wave_normal));
-		float specular_exponent = specular_angle / (1.0 - specular_power);
+		float specular_exponent = specular_angle / (1.0 - specular_smoothness);
 		float specular_highlight = exp(-specular_exponent * specular_exponent);
 		
 		ALBEDO = mix(ocean_color, deep_ocean_color, t).xyz;
-		//ALBEDO += specular_highlight * specular_color.xyz * specular_strenght * float(dstToOcean>0.0);
+		ALBEDO += specular_highlight * specular_color.xyz * specular_strenght * float(dstToOcean>0.0);
 	}
 	else
 	{

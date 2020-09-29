@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/FBXs/ZaWardo.fbx" type="PackedScene" id=1]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_energy = 1.16
+
+[node name="Spatial" type="Spatial"]
+
+[node name="ZaWardo" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75275, 1.29429, -3.71402 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.194952, 0.807753, -0.556353, -0.26712, 0.589521, 0.762307, 0.943738, -8.63367e-10, 0.330696, -14.8301, 12.2859, 3.1656 )
+spot_range = 20.259
+spot_angle = 76.8
+spot_angle_attenuation = 0.812254

@@ -6,6 +6,7 @@ Shader that uses png color schemes, to create cartoon like 3D models.
 
 # YouTube Video
 
+[![Video](https://img.youtube.com/vi/chCIyO_XUPw/0.jpg)](https://www.youtube.com/watch?v=chCIyO_XUPw)
 
 # Resources
 ### Color Theory

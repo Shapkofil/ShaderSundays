@@ -1,0 +1,10 @@
+# Ep4:ProceduralPixel
+Realtime pixel art creation using the rendering of 3D models
+
+## Youtube Video
+
+
+## Resources
+- https://youtu.be/cLnyKRfBFsQ
+- https://youtu.be/DTExHmvfZhI
+- https://docs.godotengine.org/en/stable/tutorials/viewports/viewports.html

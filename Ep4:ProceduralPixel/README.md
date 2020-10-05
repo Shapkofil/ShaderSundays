@@ -2,7 +2,7 @@
 Realtime pixel art creation using the rendering of 3D models
 
 ## Youtube Video
-
+[![Video](https://img.youtube.com/vi/s9ZFYoj-8XQ/0.jpg)](https://www.youtube.com/watch?v=s9ZFYoj-8XQ)
 
 ## Resources
 - https://youtu.be/cLnyKRfBFsQ
